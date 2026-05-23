@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplikasi Operator JS Interaktif</title>
+</head>
+<body>
+    <h2>Aplikasi Operator JavaScript</h2>
+
+    <label>Masukkan angka pertama: </label>
+    <input type="number" id="angka1"><br><br>
+
+    <label>Masukkan angka kedua: </label>
+    <input type="number" id="angka2"><br><br>
+
+    <label>Pilih operasi: </label>
+    <select id="operasi">
+        <option value="aritmatik">Aritmatik</option>
+        <option value="penugasan">Penugasan</option>
+        <option value="perbandingan">Perbandingan</option>
+    </select><br><br>
+    <button onclick="hitung()">Hitung</button>
+    <h3>Hasil:</h3>
+    <div id="output"></div>
+
+    <script>
+        function hitung() {
+            let a = parseInt(document.getElementById("angka1").value);
+            let b = parseInt(document.getElementById("angka2").value);
+            let pilihan = document.getElementById("operasi").value;
+            let hasil = "";
+
+            if (pilihan === "aritmatik") {
+                hasil += "<b>Operator Aritmatik:</b><br>";
+                hasil += "a + b = " + (a + b) + "<br>";
+                hasil += "a - b = " + (a - b) + "<br>";
+                hasil += "a * b = " + (a * b) + "<br>";
+                hasil += "a / b = " + (a / b) + "<br>";
+                hasil += "a % b = " + (a % b) + "<br>";
+            } 
+            else if (pilihan === "penugasan") {
+                let x = a;
+                hasil += "<b>Operator Penugasan:</b><br>";
+                x += b; hasil += "x += b → " + x + "<br>";
+                x -= b; hasil += "x -= b → " + x + "<br>";
+                x *= b; hasil += "x *= b → " + x + "<br>";
+                x /= b; hasil += "x /= b → " + x + "<br>";
+            } 
+            else if (pilihan === "perbandingan") {
+                hasil += "<b>Operator Perbandingan:</b><br>";
+                hasil += "a == b → " + (a == b) + "<br>";
+                hasil += "a != b → " + (a != b) + "<br>";
+                hasil += "a > b → " + (a > b) + "<br>";
+                hasil += "a < b → " + (a < b) + "<br>";
+                hasil += "a >= b → " + (a >= b) + "<br>";
+                hasil += "a <= b → " + (a <= b) + "<br>";
+            }
+            document.getElementById("output").innerHTML = hasil;
+        }
+    </script>
+</body>
+</html>
